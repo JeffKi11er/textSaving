@@ -54,8 +54,12 @@ public class Screen extends JPanel implements KeyListener, ActionListener, Runna
                         String[]data = scriptReport.get(scriptReport.size()-1).split("-");
                         String timeLast = data[1];
                         String []separateData = timeLast.split(":");
-                        String resultLastTime = separateData[0]+":"+separateData[1];
-                        newTask+= resultLastTime+"-"+" "+simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
+                        if(separateData[0].trim().equals("12")){
+                            newTask+= "13 : 00 - "+simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
+                        }else {
+                            String resultLastTime = separateData[0].trim()+" :"+separateData[1];
+                            newTask+= resultLastTime+"-"+" "+simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
+                        }
                     }else {
                         newTask+= "08 : 30 - "+ simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
                     }
