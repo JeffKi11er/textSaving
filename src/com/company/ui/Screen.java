@@ -47,17 +47,17 @@ public class Screen extends JPanel implements KeyListener, ActionListener, Runna
                     if(task.isEmpty()){
                         return;
                     }
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH : mm");
                     Date date = new Date();
                     String newTask ="";
                     if(scriptReport.size()>0){
                         String[]data = scriptReport.get(scriptReport.size()-1).split("-");
                         String timeLast = data[1];
                         String []separateData = timeLast.split(":");
-                        String resultLastTime = separateData[0].trim()+":"+separateData[1];
+                        String resultLastTime = separateData[0]+":"+separateData[1];
                         newTask+= resultLastTime+"-"+" "+simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
                     }else {
-                        newTask+= "08:30 - "+ simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
+                        newTask+= "08 : 30 - "+ simpleDateFormat.format(date)+" : "+"\n"+"- "+task+"\n";
                     }
                     scriptReport.add(newTask);
                     jInput.setText("");
